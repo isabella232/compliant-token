@@ -4,18 +4,21 @@ var SingleLimitTransferChecker = artifacts.require("SingleLimitTransferChecker")
 var AccountLimitTransferChecker = artifacts.require("AccountLimitTransferChecker");
 var WhitelistedTransferChecker = artifacts.require("WhitelistedTransferChecker");
 var TransferPolicy = artifacts.require("TransferPolicy");
+var FixedPolicySelector = artifacts.require("FixedPolicySelector");
 
 require("./test-setup");
 
 contract('Compliant Coupon', function ([operator, sender, recipient]) {
 
-  var compliantCoupon, policy;
+  var compliantCoupon, policy, policySelector;
   var blockingChecker, singleLimitChecker, accountLimitTransferChecker, whitelistedChecker;
 
   step("should define compliant coupon", async function () {
     compliantCoupon = await CompliantCoupon.new(100);
     policy = await TransferPolicy.new();
-    compliantCoupon.setPolicy(policy.address);
+    policySelector = await FixedPolicySelector.new(policy.address);
+    await compliantCoupon.setPolicySelector(policySelector.address);
+
     await compliantCoupon.mint(sender, 100);
 
     (await compliantCoupon.balanceOf(sender)).should.be.bignumber.equal('100');
