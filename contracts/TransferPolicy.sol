@@ -5,7 +5,7 @@ This contract groups the checkers that contains rules controlling token transfer
 pragma solidity ^0.5.2;
 
 import 'openzeppelin-solidity/contracts/token/ERC20/ERC20.sol';
-import './ITransferChecker.sol';
+import './checkers/ITransferChecker.sol';
 
 
 contract TransferPolicy is ERC20 {
