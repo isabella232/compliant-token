@@ -1,0 +1,16 @@
+# Dependency directories
+node_modules/
+
+# Artifacts
+build/
+
+# IDE-specific dirs.
+.idea
+.vscode
+
+# Trash
+.DS_Store
+.yarnclean
+.ignore
+.jshintrc
+.css.map
