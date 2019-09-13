@@ -12,6 +12,10 @@ Each charity project encodes a list of "goals" that the charity aims to achieve,
 
 Donors give to projects on the Alice platform using fiat, and the payment logic is implemented on the blockchain using a stablecoin token pegged to the value of their gift. When a donor sends money to a project, the corresponding amount of tokens is minted and credited by the Charity contract.  These tokens are held in escrow until a dedicated Validator confirms that an expected goal pursued by the charity has been achieved. Once this validation has been performed, the price assigned to the goal is then transferred to the charity's account. If the charity does not achieve any goals, outstanding tokens are unlocked and returned to donors. They can then be reused for future donations.
 
+### Compliant transfer lifecycle
+
+![Compliant transfer lifecycle](/diagrams/compliant-transfer-lifecycle.png)
+
 ### Installation
 
 To install all of the necessary dependencies use the node package manager:
