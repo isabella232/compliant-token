@@ -1,4 +1,4 @@
-# Compliant Coupons
+# Compliant Token Wrapper
 
 [![Join the chat at https://gitter.im/alice-si/Lobby](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/alice-si/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
@@ -12,9 +12,15 @@ Each charity project encodes a list of "goals" that the charity aims to achieve,
 
 Donors give to projects on the Alice platform using fiat, and the payment logic is implemented on the blockchain using a stablecoin token pegged to the value of their gift. When a donor sends money to a project, the corresponding amount of tokens is minted and credited by the Charity contract.  These tokens are held in escrow until a dedicated Validator confirms that an expected goal pursued by the charity has been achieved. Once this validation has been performed, the price assigned to the goal is then transferred to the charity's account. If the charity does not achieve any goals, outstanding tokens are unlocked and returned to donors. They can then be reused for future donations.
 
+
+
+### Architecture
+
+![Compliant transfer lifecycle](/diagrams/architecture.png)
+
 ### Compliant transfer lifecycle
 
-![Compliant transfer lifecycle](/diagrams/compliant-transfer-lifecycle.png)
+![Compliant transfer lifecycle](/diagrams/lifecycle.png)
 
 ### Installation
 
