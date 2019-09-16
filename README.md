@@ -12,19 +12,21 @@ of built-in mechanism to enforce compliance with the governing financial laws.
 To mitigate such concerns and boost the token adoption by institutional users we decided to design a framework allowing
 token designers to easily define and implement restriction coming from the traditional financial world.
 
-This solution may be seen as complementary to the (ERC-1400)[https://thesecuritytokenstandard.org/] security token standard by
+This solution may be seen as complementary to the [ERC-1400](https://thesecuritytokenstandard.org/) security token standard by
 focusing on a preventive side and enforcing that non-compliant transfer cannot be executed rather than allowing regulators to intervene
 only after something went wrong.
 
 The first use case will be adopting [Alice](https://alice.si) social impact bonds coupons to be tradable in a compliant way so they may be
 more accessible to traditional institutional investors.
 
+We are grateful to the Gnosis team for supporting this project by awarding the [GECO](https://github.com/gnosis/GECO) grant to Alice.
+
 
 ### Architecture
 
 ![Compliant transfer lifecycle](/diagrams/architecture.png)
 
-Any ERC-20 token may become compliant by extending the [ComplianceWrapper contract](https://github.com/alice-si/compliant-token/blob/master/contracts/PreventiveComplianceWrapper.sol). This contract intercepts any transfer
+Any ERC-20 token may become compliant by extending the [ComplianceWrapper](https://github.com/alice-si/compliant-token/blob/master/contracts/PreventiveComplianceWrapper.sol) contract. This contract intercepts any transfer
 attempts and invokes the [PolicySelector](https://github.com/alice-si/compliant-token/tree/master/contracts/selectors) to choose the appropriate compliance policy based on transfer parameters such as an investor type.
 A selected [Policy](https://github.com/alice-si/compliant-token/blob/master/contracts/TransferPolicy.sol) is a set of [Checkers](https://github.com/alice-si/compliant-token/tree/master/contracts/checkers) which express rules and restrictions modelled after a real-world financial environment.
 
